@@ -1,0 +1,179 @@
+* {
+    font-family: 'Lexend', sans-serif;
+}
+
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 600% 600%;
+    background-repeat: no-repeat;
+    animation: gradient 15s ease infinite;
+    overflow: hidden;
+}
+
+
+h1 {
+    text-align: center;
+    color: white;
+    text-shadow: 5px 5px 5px red;
+}
+
+.container {
+    width: 900px;
+    margin: auto;
+    margin-top: -10px;
+    background-color: wheat;
+    border-radius: 10px;
+    border: 5px solid #ffa200;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.icon-grid {
+/* flex! */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#griglia>div {
+    margin: 1em 1.2em;
+    width: 100px;
+    height: 100px;
+    /* dimensioni e margini */
+    background-color: #ee0602dc;
+    border: 5px solid orange;
+    border-radius: 10px;
+}
+
+.timer {
+    padding: 10px 0;
+    color: white;
+    text-shadow: 1px 1px 4px #000000;
+}
+
+.icon {
+    font-size: 70px;
+    text-align: center;
+    visibility: visible !important;
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.nascondi {
+    opacity: 0;
+}
+
+.disabled {
+    pointer-events: none;
+    cursor: wait;
+}
+
+.show {
+    animation: rotazione-carta 1s ease;
+    /* agganciare animation-name rotazione carta */
+    animation-duration: .5s;
+    background-color: white;
+    border: 1px solid #3889c4;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+.find {
+    animation: indovinato 1s ease;
+    /* agganciare animation-name indovinato */
+    animation-duration: .5s;
+    background-color: #00ff048f;
+    border: 1px solid #3889c4;
+    border-radius: 10px;
+}
+
+.button {
+    color: white;
+    font-size: 22px;
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: rgb(255, 187, 61);
+    border: 5px solid #ff0000;
+    border-radius: 5px;
+    border-radius: 30px;
+    box-shadow: 0 5px 10px rgb(255, 0, 136);
+}
+
+.button:hover {transform: translateY(2px);}
+.button:active {transform: translateY(6px); box-shadow: none;}
+
+#modal, #gameover {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#modal.active, #gameover.active {
+    display: flex;
+}
+
+#modal h2 {
+    margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 400px;
+    }
+    #griglia>div {
+        margin: 5px 5px;
+        width: 70px;
+        height: 70px;
+    }
+    .icon {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 420px) {
+    .container {
+        width: 230px;
+    }
+    #griglia>div {
+        margin: 5px 5px;
+        width: 40px;
+        height: 40px;
+    }
+    .icon {
+        font-size: 20px;
+    }
+}
+
+@keyframes indovinato { /* animazione quando si indovina */
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+@keyframes rotazione-carta { /* animazione quando ruota la carta */
+    from {transform: rotateY(0deg);}
+    50% {transform: rotateY(90deg);}
+    to {transform: rotateY(0deg);}
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
